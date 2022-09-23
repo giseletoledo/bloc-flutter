@@ -40,7 +40,7 @@ class HomePage extends StatelessWidget {
               ),
               ButtonCard(
                 onTap: () {
-                  Navigator.of(context).pushNamed('/cubit/example/');
+                  //Navigator.of(context).pushNamed('/cubit/example/');
                 },
                 label: 'Cubit Names',
               ),

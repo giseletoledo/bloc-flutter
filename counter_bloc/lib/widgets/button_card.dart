@@ -12,22 +12,23 @@ class ButtonCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 2,
-      color: const Color.fromARGB(110, 108, 180, 242),
-      child: SizedBox(
-          width: 170,
-          height: 170,
-          child: Center(
-            child: GestureDetector(
-                onTap: onTap,
-                child: Text(
-                  label,
-                  style: const TextStyle(
-                      color: Color.fromARGB(255, 247, 245, 249),
-                      fontWeight: FontWeight.bold),
-                )),
-          )),
+    return GestureDetector(
+      onTap: onTap,
+      child: Card(
+        margin: const EdgeInsets.only(left: 14, bottom: 12),
+        color: const Color.fromARGB(145, 48, 156, 250),
+        child: SizedBox(
+            width: 170,
+            height: 170,
+            child: Center(
+              child: Text(
+                label,
+                style: const TextStyle(
+                    color: Color.fromARGB(255, 247, 245, 249),
+                    fontWeight: FontWeight.bold),
+              ),
+            )),
+      ),
     );
   }
 }

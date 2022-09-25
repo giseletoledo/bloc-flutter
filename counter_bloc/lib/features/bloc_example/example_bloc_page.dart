@@ -25,6 +25,15 @@ class ExampleBlocPage extends StatelessWidget {
         child: Column(
           children: [
             BlocConsumer<ExampleBloc, ExampleState>(
+              listenWhen: (previous, current) {
+                if (previous is ExampleStateInitial &&
+                    current is ExampleStateData) {
+                  if (current.names.length > 3) {
+                    return true;
+                  }
+                }
+                return false;
+              },
               listener: (context, state) {
                 print("Estado alterado para ${state.runtimeType}");
               },

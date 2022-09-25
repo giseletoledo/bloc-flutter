@@ -80,9 +80,12 @@ class ExampleBlocPage extends StatelessWidget {
                       final name = names[index];
                       return ListTile(
                         onTap: () {
-                          context.read<ExampleBloc>().add(
-                                ExampleRemoveNameEvent(name: name),
-                              );
+                          //context
+                          // .read<ExampleBloc>()
+                          //.add(ExampleRemoveNameEvent(name: name));
+                          context
+                              .read()<ExampleBloc>()
+                              .add(ExampleAddNameEvent(name: 'Provider'));
                         },
                         title: Text(name),
                       );

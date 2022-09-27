@@ -41,7 +41,26 @@ class ExampleBlocPage extends StatelessWidget {
                 if (state is ExampleStateData) {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text("Total de nomes é ${state.names.length}"),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            TextButton.icon(
+                              onPressed: () {
+                                //add - método stream
+                                context
+                                    .read<ExampleBloc>()
+                                    .add(ExampleAddNameEvent(name: 'Provider'));
+                              },
+                              icon: const Icon(Icons.add),
+                              label: const Text(''),
+                            ),
+                          ],
+                        ),
+                        Text("Total de nomes é ${state.names.length}"),
+                      ],
+                    ),
                   );
                 }
                 return const SizedBox.shrink();
@@ -79,15 +98,25 @@ class ExampleBlocPage extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final name = names[index];
                       return ListTile(
-                        onTap: () {
-                          context
-                              .read<ExampleBloc>()
-                              .add(ExampleRemoveNameEvent(name: name));
-                          context
-                              .read<ExampleBloc>()
-                              .add(ExampleAddNameEvent(name: 'Provider'));
-                        },
-                        title: Text(name),
+                        title: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(name),
+                                TextButton.icon(
+                                  onPressed: () {
+                                    //add - método stream
+                                    context.read<ExampleBloc>().add(
+                                        ExampleRemoveNameEvent(name: name));
+                                  },
+                                  icon: const Icon(Icons.delete_rounded),
+                                  label: const Text(''),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       );
                     },
                   ),

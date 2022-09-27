@@ -29,7 +29,8 @@ class ExampleBloc extends Bloc<ExampleEvent, ExampleState> {
     final stateExample = state;
 
     if (stateExample is ExampleStateData) {
-      final names = [...stateExample.names, event.name];
+      final newName = event.name;
+      final names = [...stateExample.names, newName];
       emit(ExampleStateData(names: names));
     }
   }

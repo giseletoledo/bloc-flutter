@@ -49,9 +49,9 @@ class ExampleBlocPage extends StatelessWidget {
                             TextButton.icon(
                               onPressed: () {
                                 //add - método stream
-                                context
-                                    .read<ExampleBloc>()
-                                    .add(ExampleAddNameEvent(name: 'Provider'));
+                                context.read<ExampleBloc>().add(
+                                    ExampleAddNameEvent(
+                                        name: "Teste${state.names.length}"));
                               },
                               icon: const Icon(Icons.add),
                               label: const Text(''),

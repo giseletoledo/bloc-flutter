@@ -1,2 +1,2 @@
 # blocflutter
-Aprendendo gerenciamento de estados com Bloc
+Utilizando pattern Bloc para gerenciamento de estados
